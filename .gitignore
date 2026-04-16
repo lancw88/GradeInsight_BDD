@@ -23,6 +23,7 @@ pip-wheel-metadata/
 venv/
 env/
 ENV/
+.venv-usonly/
 
 # Python test and tooling caches
 .pytest_cache/

@@ -45,12 +45,18 @@ GradeInsight_BDD/
    cd GradeInsight_BDD
    ```
 
-2. **安裝依賴套件**
+2. **建立與啟動 Python 虛擬環境**
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. **安裝依賴套件**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **確認安裝**
+4. **確認安裝**
    ```bash
    python --version  # 應為 3.10+
    ```
@@ -64,6 +70,7 @@ GradeInsight_BDD/
 在終端機中執行：
 ```bash
 cd backend
+source ../.venv/bin/activate
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
@@ -73,6 +80,8 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 開啟新的終端機視窗，執行：
 ```bash
+cd GradeInsight_BDD
+source .venv/bin/activate
 cd frontend
 streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0
 ```
