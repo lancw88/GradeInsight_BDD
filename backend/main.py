@@ -37,6 +37,14 @@ def get_db():
 @app.on_event("startup")
 async def startup_event():
     init_db()
+    db = SessionLocal()
+    try:
+        from backend.models.db_models import Student
+        count = db.query(Student).count()
+        if count == 0:
+            DataGenerator(db).generate_mock_data(30)
+    finally:
+        db.close()
 
 
 @app.get("/api/health")

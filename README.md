@@ -62,6 +62,8 @@ python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 
 啟動後可瀏覽：http://localhost:8000/docs
 
+啟動時若資料庫為空，系統會自動產生 30 筆模擬學生成績。
+
 ### 啟動前端介面
 
 ```bash
