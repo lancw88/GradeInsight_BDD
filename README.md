@@ -67,12 +67,16 @@ GradeInsight_BDD/
 
 ### 啟動後端 API
 
-在終端機中執行：
+請從專案根目錄執行：
 ```bash
-cd backend
-source ../.venv/bin/activate
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+cd /workspaces/GradeInsight_BDD
+source .venv/bin/activate
+python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
+
+請勿直接在 `backend/` 目錄下執行 `uvicorn main:app`，這會導致相對匯入失敗。
+
+如果出現 `uvicorn: command not found`，請確認已先執行 `source .venv/bin/activate`，或執行 `pip install -r requirements.txt`。
 
 啟動成功後，訪問：http://localhost:8000/docs 查看 API 文檔。
 
@@ -80,11 +84,13 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 開啟新的終端機視窗，執行：
 ```bash
-cd GradeInsight_BDD
+cd /workspaces/GradeInsight_BDD
 source .venv/bin/activate
 cd frontend
-streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+python -m streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0
 ```
+
+如果出現 `streamlit: command not found`，請確認已啟動虛擬環境並安裝依賴。
 
 啟動成功後，訪問：http://localhost:8501 使用系統。
 
